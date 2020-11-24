@@ -1,0 +1,50 @@
+#draggable {
+    position: absolute;
+    z-index: 9;
+    left:50%;
+  }
+  
+#draggableheader {
+    cursor: move;
+    z-index: 10;
+    height:20px;
+    width:100%;
+    margin-bottom: 7%;
+}
+
+@media(min-width:901px) and (max-width: 1199px) {
+
+    #draggable {
+      position: absolute;
+      z-index: 9;
+      left:41%;
+      margin-right:16px;
+    }
+    
+  #draggableheader {
+      cursor: move;
+      z-index: 10;
+      height:20px;
+      width:100%;
+      margin-bottom: 7%;
+  }
+  .container.deck-container {
+    width: 500px;
+    position:relative;
+    left:0;
+
+  }
+}
+
+  @media (max-width: 590px) {
+    #draggableheader {
+        height:18px;
+        margin-bottom: 6%;
+    }
+}
+
+@media (max-width: 420px) {
+    #draggableheader {
+        height:12px;
+      }
+}

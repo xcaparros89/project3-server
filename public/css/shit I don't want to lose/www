@@ -1,0 +1,161 @@
+#!/usr/bin/env node
+
+var app = require('../app');
+var debug = require('debug')('boilerplate-codealong-server-starter-code:server');
+var http = require('http');
+const socketio = require('socket.io');
+const formatMessage = require('../utils/messages');
+const {userJoin, getCurrentUser, userLeave, getRoomUsers, setReady, addPlayerActions} = require('../utils/users')
+var port = normalizePort(process.env.PORT || '4000');
+app.set('port', port);
+var server = http.createServer(app);
+
+const io = socketio(server);
+
+//Run when clients connects
+io.on('connection', socket => {
+  socket.on('join', ({username, room, isBot})=>{
+      console.log('socket', username, room)
+      const user = userJoin(socket.id, username, room, isBot)
+      console.log(user);
+      socket.join(user.room)
+      //Broadcast to the user
+      if(!isBot){socket.emit('message', formatMessage('Chat-Bot', 'Welcome to the race!'))};
+      //Broadcast to other users
+      socket.broadcast.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has joined the chat`))
+      //Broadcast to everyone
+      //io.emit()
+      console.log(user.id, 'id')
+      //Send users and room info
+      io.to(user.room).emit('roomUsers', {
+          room: user.room,
+          users: getRoomUsers(user.room),
+          id:user.id,
+          username: user.username
+      });
+  })
+
+  
+  //Runs when client disconnects
+  socket.on('disconnect', ()=>{
+      const user = userLeave(socket.id);
+      if(user){
+          io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has left the chat`))
+          io.to(user.room).emit('roomUsers', {
+              room: user.room,
+              users: getRoomUsers(user.room)
+            });
+          }
+        })
+        
+  socket.on('kickOut', ({userId, room, isBot})=>{
+    console.log('kickout', userId, isBot)
+    const user = userLeave(userId);
+    if(user){
+        io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has left the chat`))
+        io.to(user.room).emit('roomUsers', {
+          room: user.room,
+          users: getRoomUsers(user.room)
+        });
+        io.to(user.room).emit('bye', {id:userId})
+      }
+  })
+  //Listen for chatMessage
+  socket.on('chatMessage', (msg)=>{
+      const user = getCurrentUser(socket.id);
+      io.to(user.room).emit('message', formatMessage(user.username, msg))
+  })
+
+  socket.on('ready', ({user, room}) => {
+    setReady(user);
+    console.log(user);
+    io.to(room).emit('roomUsers', { room: room, users: getRoomUsers(room) });
+  });
+  
+  socket.on('prepareGame', ({room, users}) => {
+    
+    io.to(room).emit('startGame', {users});//potser hauriem de posar els robots a l'array de users.js pero no fa falta que tho pensis gaire pq canviara
+  });
+
+  socket.on('endTurn', ({room, id, actions, players, board})=>{
+    console.log('arriba a endTurn', players)
+    io.to(room).emit('addUserActions', {actions, id, players, board})
+  })
+
+  socket.on('sendActions', ({room, newIPlayer, newIAction, newBoard, newPlayers, isTwo})=>{
+    console.log('arriba a sendActions', newIPlayer, newIAction, isTwo)
+    io.to(room).emit('doActions', {newIPlayer, newIAction, newBoard, newPlayers, isTwo})
+    //io.to(room).emit('startGame', { newIPlayer, newIAction, newPlayers, newBoard, isTwo})
+  })
+
+  socket.on('emitCountdown', ({room, id})=>{
+    io.to(room).emit('startCountdown',{emiterId:id }) 
+  })
+
+})
+
+
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

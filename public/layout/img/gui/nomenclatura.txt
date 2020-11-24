@@ -1,0 +1,11 @@
+move_1 mf 1
+move_2 mf 2
+move_-1 mb
+turn_-1 tl
+turn_1 tr
+turn_2 uturn
+repeat_x
+
+moved cards
+nothing_0
+
