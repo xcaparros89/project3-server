@@ -34,6 +34,26 @@ router.post(
     }
   );
 
+  router.post(
+    "/removeUser",
+    async (req, res, next) => {
+      const { id, user } = req.body;
+      try {
+          //se ha de poner una validacion para si es el octavo impedir que pueda entrar más gente y si ya hay 8 impedir que entre él
+          const thisRoom = await Room.findOneAndUpdate({room:id}, { $pull:{ users: user } }, {new:true})
+          console.log(await Room.findOne({room:id}), id)
+          if(thisRoom.users.length === 0){
+            await Room.findOneAndDelete({room:id})
+          }
+          const allRooms = await Room.find();
+          res.status(200).json(allRooms);
+        } catch (error) {
+            next(error);
+        }
+    }
+  );
+
+
   router.get(
     "/getAllRooms",
     async (req, res, next) => {

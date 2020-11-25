@@ -96,7 +96,12 @@ async (req, res, next) => {
 // POST '/logout'
 
 // revisa si el usuario está logueado usando la función helper (chequea si la sesión existe), y luego destruimos la sesión
-router.post("/logout", isLoggedIn(), (req, res, next) => {
+router.post("/logout", isLoggedIn(), async (req, res, next) => {
+  const thisRoom = await Room.findOneAndUpdate({room:id}, { $pull:{ users: user } }, {new:true})
+  console.log(await Room.findOne({room:id}), id)
+  if(thisRoom.users.length === 0){
+    await Room.findOneAndDelete({room:id})
+  }
   req.session.destroy();
   //  - setea el código de estado y envía de vuelta la respuesta
   res

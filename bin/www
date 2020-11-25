@@ -22,7 +22,7 @@ io.on('connection', socket => {
       //Broadcast to the user
       if(!isBot){socket.emit('message', formatMessage('Chat-Bot', 'Welcome to the race!'))};
       //Broadcast to other users
-      socket.broadcast.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has joined the chat`))
+      socket.broadcast.to(user.room).emit('message', formatMessage('Chat-Bot', `A new competitor appeared, here comes ${user.username}`))
       //Broadcast to everyone
       //io.emit()
       console.log(user.id, 'id')
@@ -40,7 +40,7 @@ io.on('connection', socket => {
   socket.on('disconnect', ()=>{
       const user = userLeave(socket.id);
       if(user){
-          io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has left the chat`))
+          io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} ran away`))
           io.to(user.room).emit('roomUsers', {
               room: user.room,
               users: getRoomUsers(user.room)
@@ -51,7 +51,7 @@ io.on('connection', socket => {
   socket.on('kickOut', ({userId, room, isBot})=>{
     const user = userLeave(userId);
     if(user){
-        io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} has left the chat`))
+        io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} was kicked out`))
         io.to(user.room).emit('roomUsers', {
           room: user.room,
           users: getRoomUsers(user.room)
@@ -66,6 +66,7 @@ io.on('connection', socket => {
   })
 
   socket.on('ready', ({user, room, robotChosen}) => {
+    it.to(room).emit('disableRobot', {robot:robotChosen})
     setReady(user, robotChosen);
     io.to(room).emit('roomUsers', { room, users: getRoomUsers(room) });
   });
