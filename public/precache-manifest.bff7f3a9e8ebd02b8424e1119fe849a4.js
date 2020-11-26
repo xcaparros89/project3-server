@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb8b40a4bf9cc8063453d9fe60f8c00f",
+    "revision": "1b08f79497300767ac4a8d38eec18da5",
     "url": "/index.html"
   },
   {
-    "revision": "67b174758c45bd0f066a",
-    "url": "/static/css/main.b36ab8a9.chunk.css"
+    "revision": "d1ca378ebc41f61aedd2",
+    "url": "/static/css/main.4573a2e2.chunk.css"
   },
   {
-    "revision": "cf44247facc94b185d8d",
-    "url": "/static/js/2.731531cc.chunk.js"
+    "revision": "18617a645f527f9331ce",
+    "url": "/static/js/2.05dacb58.chunk.js"
   },
   {
     "revision": "354ab75b93b20f7415f56c2f88afb79e",
-    "url": "/static/js/2.731531cc.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.05dacb58.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "67b174758c45bd0f066a",
-    "url": "/static/js/main.9db6b253.chunk.js"
+    "revision": "d1ca378ebc41f61aedd2",
+    "url": "/static/js/main.109cac88.chunk.js"
   },
   {
     "revision": "5179ff928fc7dafdbfe9",
@@ -98,6 +98,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "52251fdd0609c6bde1db1b7488a88579",
     "url": "/static/media/TransformersMovie.52251fdd.woff2"
+  },
+  {
+    "revision": "2b900b191e2fb67d2112f8086602abc4",
+    "url": "/static/media/allrooms-bg-top.2b900b19.png"
   },
   {
     "revision": "884e7d70ed493b40dd0734cbd6fe6998",
@@ -252,8 +256,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/ham_up.10437dc5.png"
   },
   {
-    "revision": "a3004d856f7107b722714cef25c7ca9c",
-    "url": "/static/media/home-login-bg.a3004d85.png"
+    "revision": "308a7f0f7925c15c08557090e897615e",
+    "url": "/static/media/home-login-bg-footer.308a7f0f.png"
   },
   {
     "revision": "6d210c97e8425c1821ecbf6614d5757e",
