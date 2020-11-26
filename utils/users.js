@@ -1,18 +1,18 @@
 let startingBoard = [
 
-    ['pit','o',' ',' ',' ',' ',' ',' ','o',' ','o','pit'],
-      ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
+      ['pit','o',' ','o',' ',' ',' ',' ',' ','o','o','pit'],
+      ['pit',' ',' ',' ',' ','o',' ',' ',' ','o','o','pit'],
       ['pit',' ',' ','pit','pit',' ',' ',' ',' ',' ','pit','pit'],
-      ['pit',' ',' ','pit',' ',' ',' ',' ','o',' ',' ','pit'],
+      ['pit',' ',' ','pit',' ',' ','o',' ','pit',' ',' ','pit'],
       ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
       ['pit',' ',' ',' ',' ','o','pit','pit','o',' ',' ','pit'],
+      ['pit','pit',' ',' ','o',' ',' ',' ',' ',' ','pit','pit'],
       ['pit','pit',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
-      ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
       ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
       ['pit',' ',' ',' ',' ',' ',' ',' ',' ','pit','pit','pit'],
       ['pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit'],
     ]
-let startingDeck = [['move', 1], ['move', 1], ['move', 1], ['move', 2], ['move', 2], ['move', 2], ['turn', 1], ['turn', 1], ['turn', 1], ['turn', -1], ['turn', -1], ['turn', -1],['turn', 2], ['repeat', 'x'], ['repeat', 'x'], ['move', -1]] 
+let startingDeck = [['move', 1], ['move', 1], ['turn', 2], ['move', 2], ['move', 2], ['move', 2], ['turn', 1], ['turn', 1], ['turn', 1], ['turn', -1], ['turn', -1], ['turn', -1],['turn', 2], ['repeat', 'x'], ['repeat', 'x'], ['move', -1]] 
 //let startingDeck = [['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['move', 2],['move', 2], ['move', 1], ['move', 1],['move', 1], ['move', 1], ['move', 1],['move', 1], ['move', 1], ['move', 1],]
 const robotChoice= ['cam', 'cve', 'cvi', 'ham', 'hve', 'hvi', 'qam', 'qve', 'qvi', 'tam', 'tve', 'tvi'];
 const users = [];

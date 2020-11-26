@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.b36ab8a9.chunk.css",
-    "main.js": "/static/js/main.bb3220df.chunk.js",
-    "main.js.map": "/static/js/main.bb3220df.chunk.js.map",
+    "main.js": "/static/js/main.9db6b253.chunk.js",
+    "main.js.map": "/static/js/main.9db6b253.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.81fc7dff.js",
     "runtime-main.js.map": "/static/js/runtime-main.81fc7dff.js.map",
-    "static/js/2.3c151cf6.chunk.js": "/static/js/2.3c151cf6.chunk.js",
-    "static/js/2.3c151cf6.chunk.js.map": "/static/js/2.3c151cf6.chunk.js.map",
+    "static/js/2.731531cc.chunk.js": "/static/js/2.731531cc.chunk.js",
+    "static/js/2.731531cc.chunk.js.map": "/static/js/2.731531cc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f8a3e81608978fde58be1c14c5dcc512.js": "/precache-manifest.f8a3e81608978fde58be1c14c5dcc512.js",
+    "precache-manifest.56204ac9b7c65172b8f4942cdaecdcc2.js": "/precache-manifest.56204ac9b7c65172b8f4942cdaecdcc2.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.b36ab8a9.chunk.css.map": "/static/css/main.b36ab8a9.chunk.css.map",
-    "static/js/2.3c151cf6.chunk.js.LICENSE.txt": "/static/js/2.3c151cf6.chunk.js.LICENSE.txt",
+    "static/js/2.731531cc.chunk.js.LICENSE.txt": "/static/js/2.731531cc.chunk.js.LICENSE.txt",
     "static/media/TileSep-38.png": "/static/media/TileSep-38.04b7cded.png",
     "static/media/TileSep-40.png": "/static/media/TileSep-40.08211054.png",
     "static/media/TileSep-41.png": "/static/media/TileSep-41.7a7c68ae.png",
@@ -131,6 +131,7 @@
     "static/media/robot-select-disable-tam.png": "/static/media/robot-select-disable-tam.078f1daf.png",
     "static/media/robot-select-disable-tve.png": "/static/media/robot-select-disable-tve.76038de9.png",
     "static/media/robot-select-disable-tvi.png": "/static/media/robot-select-disable-tvi.f16faf30.png",
+    "static/media/robot-select-selected-tvi.png": "/static/media/robot-select-selected-tvi.5eb6f2dc.png",
     "static/media/select-robot-footer.png": "/static/media/select-robot-footer.f8c04bee.png",
     "static/media/select-robot-header.png": "/static/media/select-robot-header.7d41f3f7.png",
     "static/media/tam_down.png": "/static/media/tam_down.d1e82f35.png",
@@ -162,8 +163,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.81fc7dff.js",
-    "static/js/2.3c151cf6.chunk.js",
+    "static/js/2.731531cc.chunk.js",
     "static/css/main.b36ab8a9.chunk.css",
-    "static/js/main.bb3220df.chunk.js"
+    "static/js/main.9db6b253.chunk.js"
   ]
 }

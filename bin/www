@@ -111,7 +111,7 @@ io.on('connection', socket => {
   socket.on('sendActions', ({room, newIPlayer, newIAction, newBoard, newPlayers, isTwo})=>{
     let winner
     newPlayers.forEach(player=>{
-      if(player.pos[0]===0 && player.pos[1]===5 ) {winner = player.name; return}
+      if(player.pos[0]===0 && player.pos[1]===5 ) {winner = player.username; return}
     })
     if(winner){
       io.to(room).emit('finishGame', {winner, newBoard, newPlayers})
