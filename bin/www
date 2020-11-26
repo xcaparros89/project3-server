@@ -26,6 +26,7 @@ io.on('connection', socket => {
       //Broadcast to everyone
       //io.emit()
       console.log(user.id, 'id')
+      io.to(room).emit('disableRobot', {robot:user.name})
       //Send users and room info
       io.to(user.room).emit('roomUsers', {
           room: user.room,
@@ -50,6 +51,7 @@ io.on('connection', socket => {
         
   socket.on('kickOut', ({userId, room, isBot})=>{
     const user = userLeave(userId);
+    io.to(user.room).emit('enableRobot', {robot:user.name})
     if(user){
         io.to(user.room).emit('message', formatMessage('Chat-Bot', `${user.username} was kicked out`))
         io.to(user.room).emit('roomUsers', {
@@ -66,8 +68,9 @@ io.on('connection', socket => {
   })
 
   socket.on('ready', ({user, room, robotChosen}) => {
-    it.to(room).emit('disableRobot', {robot:robotChosen})
+    io.to(room).emit('disableRobot', {robot:robotChosen})
     setReady(user, robotChosen);
+    console.log(getRoomUsers(room), 'getRoomAfterReady')
     io.to(room).emit('roomUsers', { room, users: getRoomUsers(room) });
   });
   
@@ -80,7 +83,7 @@ io.on('connection', socket => {
     let winner
     newPlayers.forEach(player=>{
       console.log(player, 'winner')
-      if(player.pos[0]===1 && player.pos[1]===5 ) {winner = player.name; return}
+      if(player.pos[0]===0 && player.pos[1]===5 ) {winner = player.name; return}
     })
     if(winner){
       io.to(room).emit('finishGame', {winner, newBoard, newPlayers})
@@ -108,8 +111,7 @@ io.on('connection', socket => {
   socket.on('sendActions', ({room, newIPlayer, newIAction, newBoard, newPlayers, isTwo})=>{
     let winner
     newPlayers.forEach(player=>{
-      console.log(player, 'winner')
-      if(player.pos[0]===1 && player.pos[1]===5 ) {winner = player.name; return}
+      if(player.pos[0]===0 && player.pos[1]===5 ) {winner = player.name; return}
     })
     if(winner){
       io.to(room).emit('finishGame', {winner, newBoard, newPlayers})
