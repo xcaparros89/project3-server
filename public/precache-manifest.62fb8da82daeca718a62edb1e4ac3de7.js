@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f1dd892562b86494ae43a10baa592dd",
+    "revision": "b7e6ae606f613c92e5bb1560815f0ac5",
     "url": "/index.html"
   },
   {
-    "revision": "e4fddb1642966903c1d6",
-    "url": "/static/css/main.cbe7b1d2.chunk.css"
+    "revision": "2b83eac179e70cb71618",
+    "url": "/static/css/main.4573a2e2.chunk.css"
   },
   {
     "revision": "dad4cb155c23e842c3c0",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.18585277.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e4fddb1642966903c1d6",
+    "revision": "2b83eac179e70cb71618",
     "url": "/static/js/main.7d4cba1c.chunk.js"
   },
   {
@@ -452,24 +452,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/r1c6.be1e2a04.png"
   },
   {
-    "revision": "9df76fc273c0b214d7c423cd6bf9627b",
-    "url": "/static/media/r1c8_bg.9df76fc2.png"
-  },
-  {
     "revision": "679e146e6648e86ab828c98b91e60463",
     "url": "/static/media/r1c9.679e146e.png"
   },
   {
-    "revision": "2fe3444a63607f609a63f8ca2b60b117",
-    "url": "/static/media/r3c5_bg.2fe3444a.png"
-  },
-  {
     "revision": "0cd4692f9cf2dd8f7524764a77bf75f5",
     "url": "/static/media/r3c6.0cd4692f.png"
-  },
-  {
-    "revision": "fbfd4806846a5db91754bc76808c7490",
-    "url": "/static/media/r3c7_bg.fbfd4806.png"
   },
   {
     "revision": "0038e6a05c322958cf87f31dbaa8f3ab",
@@ -480,16 +468,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/r4c3.11b3352e.png"
   },
   {
-    "revision": "73adfb3b0208ec6f0dee0879f4895e45",
-    "url": "/static/media/r6c3_bg.73adfb3b.png"
-  },
-  {
     "revision": "3168d34bbb399e94e078569543a6cb54",
     "url": "/static/media/r6c4.3168d34b.png"
-  },
-  {
-    "revision": "329a4587db441bf63a11d548f3e8e324",
-    "url": "/static/media/r6c5_bg.329a4587.png"
   },
   {
     "revision": "36a8ed31af0426efec2635395dc0c9d8",
