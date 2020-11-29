@@ -13,14 +13,13 @@ let startingBoard = [
       ['pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit'],
     ]
 let startingDeck = [['move', 1], ['move', 1], ['turn', 2], ['move', 2], ['move', 2], ['move', 2], ['turn', 1], ['turn', 1], ['turn', 1], ['turn', -1], ['turn', -1], ['turn', -1],['turn', 2], ['repeat', 'x'], ['repeat', 'x'], ['move', -1]] 
-//let startingDeck = [['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['repeat', 'x'], ['move', 2],['move', 2], ['move', 1], ['move', 1],['move', 1], ['move', 1], ['move', 1],['move', 1], ['move', 1], ['move', 1],]
 const robotChoice= ['cam', 'cve', 'cvi', 'ham', 'hve', 'hvi', 'qam', 'qve', 'qvi', 'tam', 'tve', 'tvi'];
 const users = [];
 const games = {};
 var shortid = require('shortid');
 
 //Join user to chat
-function userJoin(id, username, room, isBot){
+function userJoin(id, username, room, isBot, isCreator){
     let index = 0;
     if(isBot){
         let users = getRoomUsers(room);
@@ -30,7 +29,7 @@ function userJoin(id, username, room, isBot){
     }
     let ready = isBot? true : false;
     let newId = isBot? shortid.generate() : id;
-    const user = {id:newId, username, room, ready};
+    const user = {id:newId, username, room, ready, isCreator};
     user.name = isBot? robotChoice[index] : 'placeholder'
     users.push(user);
     return user;

@@ -14,9 +14,9 @@ const io = socketio(server);
 
 //Run when clients connects
 io.on('connection', socket => {
-  socket.on('join', ({username, room, isBot})=>{
+  socket.on('join', ({username, room, isBot, isCreator})=>{
       console.log('socket', username, room)
-      const user = userJoin(socket.id, username, room, isBot)
+      const user = userJoin(socket.id, username, room, isBot, isCreator)
       console.log(user);
       socket.join(user.room)
       //Broadcast to the user
