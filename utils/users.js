@@ -75,7 +75,7 @@ const prepareGame = (room, players) =>{
     players.forEach((player, index)=>{
         let startingPos = [[9,4],[9,6],[8,3],[8,5],[9,2],[8,7],[8,9],[9,8]][index];
         newBoard[startingPos[0]].splice(startingPos[1], 1, player.name);
-        newPlayers.push({name:player.name, username:player.username, id:player.id, orientation:'up', pos:startingPos, deck:shuffle(JSON.parse(JSON.stringify(startingDeck))), handCards:[]})
+        newPlayers.push({name:player.name, username:player.username, id:player.id, orientation:'up',isCreator:player.isCreator, pos:startingPos, deck:shuffle(JSON.parse(JSON.stringify(startingDeck))), handCards:[]})
     });
     games[room] = {room, players:newPlayers, board:newBoard, turn:0};
     return prepareTurn(room)
