@@ -1,13 +1,13 @@
 let startingBoard = [
 
       ['pit','o','o','o',' ',' ',' ',' ',' ','o','o','pit'],
-      ['pit',' ',' ',' ',' ','o',' ',' ',' ','o','o','pit'],
+      ['pit',' ',' ',' ',' ','o','o',' ',' ','o','o','pit'],
       ['pit',' ',' ','pit','pit',' ',' ',' ',' ',' ','pit','pit'],
       ['pit',' ',' ','pit',' ',' ','o',' ','pit',' ',' ','pit'],
-      ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
+      ['pit',' ','o','o',' ',' ',' ',' ',' ',' ',' ','pit'],
       ['pit',' ',' ',' ',' ','o','pit','pit','o',' ',' ','pit'],
       ['pit','pit',' ',' ','o',' ',' ',' ',' ',' ','pit','pit'],
-      ['pit','pit',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
+      ['pit','pit',' ',' ',' ',' ',' ',' ',' ','o',' ','pit'],
       ['pit',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','pit'],
       ['pit',' ',' ',' ',' ',' ',' ',' ',' ','pit','pit','pit'],
       ['pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit','pit'],
@@ -105,7 +105,7 @@ const prepareTurn = (room, newPlayers=false, newBoard=false) => {
 const turnOrder = (players)=>{
     players.map(player=>{
         const [y, x] = player.pos;
-        player.distance = Math.abs(x-4) + Math.abs(y-9)
+        player.distance = Math.abs(x-5) + Math.abs(y-9)
     })
     players.sort((a,b)=> a.distance - b.distance);
     return players
