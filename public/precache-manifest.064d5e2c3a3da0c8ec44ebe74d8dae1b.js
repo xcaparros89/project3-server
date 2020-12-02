@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "583212f787b44cbddf4e52eb4a852556",
+    "revision": "28651a6409e397a850bf70495293eb4a",
     "url": "/index.html"
   },
   {
-    "revision": "344f511a5e10930d9272",
-    "url": "/static/css/main.7c9018da.chunk.css"
+    "revision": "f96bd6315412fb2e3442",
+    "url": "/static/css/main.c09b15ae.chunk.css"
   },
   {
     "revision": "a21beec69dd1f5e68712",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.73ac142d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "344f511a5e10930d9272",
+    "revision": "f96bd6315412fb2e3442",
     "url": "/static/js/main.1f4a0801.chunk.js"
   },
   {
@@ -34,10 +34,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7a7c68aef99bc8e290192ebffa82c908",
     "url": "/static/media/TileSep-41.7a7c68ae.png"
-  },
-  {
-    "revision": "7ac3a8325fd9d821b5a7a8cd14c3d160",
-    "url": "/static/media/TileSep-47.7ac3a832.png"
   },
   {
     "revision": "4a05b4663acda297c85e935ae971490b",
