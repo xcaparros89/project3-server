@@ -25,8 +25,7 @@ router.post(
     const { username, password } = req.body;
 
     try {
-      if (username==='' || password===''){res.status(200).json({errorMessage:'Write a username and password!'});}
-      else if(password.length<5){res.status(200).json({errorMessage:'Password must have at least 5 characters and no spaces!'});}
+      if(password.length<5){res.status(200).json({errorMessage:'Password must have at least 5 characters and no spaces!'});}
       else{
         // chequea si el username ya existe en la BD
         const usernameExists = await User.findOne({ username }, "username");
@@ -65,7 +64,7 @@ router.post(
       const user = await User.findOne({ username });
       // si el usuario no existe, pasa el error al middleware error usando next()
       if (!user) {
-        next(createError(404));
+        res.status(200).json({errorMessage:"Username doesn't exists!"});
       }
       // si el usuario existe, hace hash del password y lo compara con el de la BD
       // loguea al usuario asignando el document a req.session.currentUser, y devuelve un json con el user
@@ -74,7 +73,7 @@ router.post(
         res.status(200).json(user);
         return;
       } else {
-        next(createError(401));
+        res.status(200).json({errorMessage:"Wrong username or password!"});
       }
     } catch (error) {
       next(error);
