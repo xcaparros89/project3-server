@@ -26,7 +26,7 @@ router.post(
 
     try {
       if (username==='' || password===''){res.status(200).json({errorMessage:'Write a username and password!'});}
-      else if(password.length<5){res.status(200).json({errorMessage:'Password must have at least 5 characters!'});}
+      else if(password.length<5){res.status(200).json({errorMessage:'Password must have at least 5 characters and no spaces!'});}
       else{
         // chequea si el username ya existe en la BD
         const usernameExists = await User.findOne({ username }, "username");
