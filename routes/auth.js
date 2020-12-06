@@ -25,20 +25,24 @@ router.post(
     const { username, password } = req.body;
 
     try {
-      // chequea si el username ya existe en la BD
-      const usernameExists = await User.findOne({ username }, "username");
-      // si el usuario ya existe, pasa el error a middleware error usando next()
-      if (usernameExists)res.status(200).json({errorMessage:'Username already exists'});
-      else {
-        // en caso contratio, si el usuario no existe, hace hash del password y crea un nuevo usuario en la BD
-        const salt = bcrypt.genSaltSync(saltRounds);
-        const hashPass = bcrypt.hashSync(password, salt);
-        const newUser = await User.create({ username, password: hashPass });
-        // luego asignamos el nuevo documento user a req.session.currentUser y luego enviamos la respuesta en json
-        req.session.currentUser = newUser;
-        res
+      if (username || password)res.status(200).json({errorMessage:'Write a username and password!'});
+      else if(password.length<5)res.status(200).json({errorMessage:'Password must have at least 5 characters!'});
+      else{
+        // chequea si el username ya existe en la BD
+        const usernameExists = await User.findOne({ username }, "username");
+        // si el usuario ya existe, pasa el error a middleware error usando next()
+        if (usernameExists)res.status(200).json({errorMessage:'Username already exists!'});
+        else {
+          // en caso contratio, si el usuario no existe, hace hash del password y crea un nuevo usuario en la BD
+          const salt = bcrypt.genSaltSync(saltRounds);
+          const hashPass = bcrypt.hashSync(password, salt);
+          const newUser = await User.create({ username, password: hashPass });
+          // luego asignamos el nuevo documento user a req.session.currentUser y luego enviamos la respuesta en json
+          req.session.currentUser = newUser;
+          res
           .status(200) //  OK
           .json({errorMessage:false, user:newUser});
+        }
       }
     } catch (error) {
       next(error);
