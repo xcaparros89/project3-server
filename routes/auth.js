@@ -25,7 +25,7 @@ router.post(
     const { username, password } = req.body;
 
     try {
-      if (!username || !password){res.status(200).json({errorMessage:'Write a username and password!'});}
+      if (username==='' || password===''){res.status(200).json({errorMessage:'Write a username and password!'});}
       else if(password.length<5){res.status(200).json({errorMessage:'Password must have at least 5 characters!'});}
       else{
         // chequea si el username ya existe en la BD
