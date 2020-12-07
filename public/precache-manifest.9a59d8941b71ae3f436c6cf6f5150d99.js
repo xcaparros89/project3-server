@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c8b27496af8702846127ee3556c3a39",
+    "revision": "f42526dd54e0e8a01eeedf361f8bea55",
     "url": "/index.html"
   },
   {
-    "revision": "87a09608f18b75bf4895",
-    "url": "/static/css/main.80675ca8.chunk.css"
+    "revision": "ff73ba52fc2ed39aa561",
+    "url": "/static/css/main.2a6279ea.chunk.css"
   },
   {
-    "revision": "96b4b5bd543f0a2ea507",
-    "url": "/static/js/2.6bd1b286.chunk.js"
+    "revision": "910e97e2628f8345cfa6",
+    "url": "/static/js/2.f8cab1a1.chunk.js"
   },
   {
     "revision": "c51b4db1899f08b6e515e095255536ed",
-    "url": "/static/js/2.6bd1b286.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.f8cab1a1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "87a09608f18b75bf4895",
-    "url": "/static/js/main.f6e71f2c.chunk.js"
+    "revision": "ff73ba52fc2ed39aa561",
+    "url": "/static/js/main.663e2504.chunk.js"
   },
   {
     "revision": "5179ff928fc7dafdbfe9",
@@ -144,8 +144,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/chat-bg.47715cc5.png"
   },
   {
-    "revision": "a22fd896c00794bc7c6b436ea05e7355",
-    "url": "/static/media/chat_mid-res_bg.a22fd896.png"
+    "revision": "803063df92d5d93a6daa88ae8e1fe928",
+    "url": "/static/media/chat-mid-footer.803063df.png"
+  },
+  {
+    "revision": "07113d504c668d329ea0fa3098c9a94b",
+    "url": "/static/media/chat-mid-header.07113d50.png"
   },
   {
     "revision": "c1b9487a39f12cb3971fb3ef53254b4a",
@@ -724,8 +728,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/robots-bg.daa3a4ab.png"
   },
   {
-    "revision": "7b5f2b7a7488e473351c2d722e7c1441",
-    "url": "/static/media/robots-placeholder.7b5f2b7a.png"
+    "revision": "8202080c9c073a63b06d29581b6ed953",
+    "url": "/static/media/robots-selected-small-footer.8202080c.png"
+  },
+  {
+    "revision": "3f08eb922191e1db8b8cb09dfa2ba786",
+    "url": "/static/media/robots-selected-small-header.3f08eb92.png"
   },
   {
     "revision": "1a790b979c7c06a4fabaafd9e9b5f19b",
