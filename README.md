@@ -1,11 +1,8 @@
-# M3 - Robo-race
+# Robo-race
+
 <br>
- <img src='/src/img/readme/roborace-img-1.png' alt='wireframe'>
+<img src='https://media.giphy.com/media/v95YVRxjS9lnPdDJTe/giphy.gif' alt='wireframe'>
 <br>
- <img src='/src/img/readme/roborace-img-2.png' alt='wireframe'>
- <br>
-  <img src='/src/img/readme/roborace-img-3.png' alt='wireframe'>
-  <br>
 
 ## Description
 
